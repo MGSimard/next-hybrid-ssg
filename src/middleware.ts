@@ -2,6 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 
 export default function authMiddleware(request: NextRequest) {
   /** Handle auth redirects here
+   * - Naturally we don't need this if we have our own middleware on server
    * - If user visits sign-in while signed-in, redirect to dashboard
    * - If user visits dashboard while signed-out, redirect to sign-in
    * - (This is obviously not implemented yet)
