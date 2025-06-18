@@ -11,6 +11,7 @@ export default function authMiddleware(request: NextRequest) {
    * - "Why not?"
    *   - Read CVE-2025-29927
    *   - It is request-blocking
+   *   - Edge runtime has limited API support (Though there is experimental node runtime on canary)
    * - Nextjs "middleware" is not accurate to traditional middleware
    * - This is just an early-return for routing
    */
