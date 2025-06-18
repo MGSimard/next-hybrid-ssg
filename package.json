@@ -1,14 +1,14 @@
 {
-  "name": "next-hybrid-ssg",
+  "name": "next-startpoint",
   "version": "0.1.0",
   "private": true,
   "author": "MGSimard <mgsimard.dev@gmail.com> (https://mgsimard.dev)",
-  "description": "Testing SSG + SSR/CSR hybrid in Next.",
+  "description": "Next.js starter point",
   "license": "MIT",
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MGSimard/next-hybrid-ssg.git"
+    "url": "git+https://github.com/MGSimard/next-startpoint.git"
   },
   "scripts": {
     "dev": "next dev --turbopack",
