@@ -4,11 +4,15 @@ export default function authMiddleware(request: NextRequest) {
   /** Handle auth redirects here
    * - If user visits sign-in while signed-in, redirect to dashboard
    * - If user visits dashboard while signed-out, redirect to sign-in
+   * - (This is obviously not implemented yet)
    */
 
   /** WE DO NOT HANDLE AUTH HERE
-   * - This is just an early-return for routing
+   * - "Why not?"
+   *   - Read CVE-2025-29927
+   *   - It is request-blocking
    * - Nextjs "middleware" is not accurate to traditional middleware
+   * - This is just an early-return for routing
    */
 
   /** NOTES: EXPERIMENTAL
@@ -24,5 +28,5 @@ export default function authMiddleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/dashboard/:path*"],
+  matcher: ["sign-in", "/dashboard/:path*"],
 };
