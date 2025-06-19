@@ -41,7 +41,6 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --header-height: calc(--spacing(14));
 }
 
 :root {
@@ -120,4 +119,8 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@utility max-w-8xl {
+  max-width: 1440px; /* 90rem = 1440px */
 }
