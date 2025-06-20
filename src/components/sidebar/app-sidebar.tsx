@@ -1,26 +1,17 @@
 "use client";
-import * as React from "react";
-import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } from "@/components/ui/sidebar";
-import { TeamSwitcher } from "@/components/sidebar/team-switcher";
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader } from "@/components/ui/sidebar";
 import { NavMain } from "@/components/sidebar/nav-main";
 import { NavAdmin } from "@/components/sidebar/nav-admin";
 import { NavUser } from "@/components/sidebar/nav-user";
 import {
   Activity,
   AudioWaveform,
-  BookOpen,
-  Bot,
-  ChartNetwork,
   ChartNoAxesColumnIncreasing,
   Command,
-  Frame,
   GalleryVerticalEnd,
-  Map,
   PanelsTopLeft,
-  PieChart,
   Settings2,
   ShieldCheck,
-  SquareTerminal,
   Target,
 } from "lucide-react";
 import { NavTeam } from "./nav-team";
