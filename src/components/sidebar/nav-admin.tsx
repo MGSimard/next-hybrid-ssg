@@ -25,6 +25,7 @@ export function NavAdmin({
     items?: {
       title: string;
       url: string;
+      isActive?: boolean;
     }[];
   }[];
 }) {
@@ -35,7 +36,7 @@ export function NavAdmin({
         {items.map((item) => (
           <Collapsible key={item.title} asChild defaultOpen={item.isActive}>
             <SidebarMenuItem>
-              <SidebarMenuButton asChild tooltip={item.title}>
+              <SidebarMenuButton asChild tooltip={item.title} isActive={item.isActive}>
                 <Link href={item.url}>
                   <item.icon />
                   <span>{item.title}</span>
@@ -53,7 +54,7 @@ export function NavAdmin({
                     <SidebarMenuSub>
                       {item.items?.map((subItem) => (
                         <SidebarMenuSubItem key={subItem.title}>
-                          <SidebarMenuSubButton asChild>
+                          <SidebarMenuSubButton asChild isActive={subItem.isActive}>
                             <Link href={subItem.url}>
                               <span>{subItem.title}</span>
                             </Link>
