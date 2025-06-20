@@ -1,5 +1,5 @@
 "use client";
-import { Moon, Sun } from "lucide-react";
+import { Check, Dot, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import {
@@ -9,8 +9,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+const THEMES = ["light", "dark", "system"];
+
 export function ThemeToggle() {
-  const { setTheme } = useTheme();
+  const { setTheme, theme } = useTheme();
 
   return (
     <DropdownMenu>
@@ -22,15 +24,15 @@ export function ThemeToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem className="cursor-pointer" onClick={() => setTheme("light")}>
-          Light
-        </DropdownMenuItem>
-        <DropdownMenuItem className="cursor-pointer" onClick={() => setTheme("dark")}>
-          Dark
-        </DropdownMenuItem>
-        <DropdownMenuItem className="cursor-pointer" onClick={() => setTheme("system")}>
-          System
-        </DropdownMenuItem>
+        {THEMES.map((themeOption) => (
+          <DropdownMenuItem
+            key={themeOption}
+            className="cursor-pointer capitalize"
+            onClick={() => setTheme(themeOption)}>
+            {themeOption}
+            {themeOption === theme && <Check className="ml-auto" />}
+          </DropdownMenuItem>
+        ))}
       </DropdownMenuContent>
     </DropdownMenu>
   );
