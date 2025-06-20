@@ -1,13 +1,13 @@
 import { GalleryVerticalEnd } from "lucide-react";
 import { SidebarMenuButton, SidebarMenu, SidebarMenuItem } from "@/components/ui/sidebar";
 
-interface Organization {
-  name: string;
-  logo: React.ElementType;
-  plan: string;
-}
+const organization = {
+  name: "Acme Inc",
+  logo: GalleryVerticalEnd,
+  plan: "Enterprise",
+};
 
-export function NavTeam({ organization }: { organization: Organization }) {
+export function NavTeam() {
   return (
     <SidebarMenu>
       <SidebarMenuItem>

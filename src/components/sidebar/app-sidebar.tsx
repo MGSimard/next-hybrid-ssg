@@ -4,82 +4,63 @@ import { NavTeam } from "@/components/sidebar/nav-team";
 import { NavMain } from "@/components/sidebar/nav-main";
 import { NavAdmin } from "@/components/sidebar/nav-admin";
 import { NavUser } from "@/components/sidebar/nav-user";
-import {
-  Activity,
-  ChartNoAxesColumnIncreasing,
-  CircleGauge,
-  GalleryVerticalEnd,
-  Gauge,
-  Settings2,
-  ShieldCheck,
-  Target,
-} from "lucide-react";
+import { Activity, ChartNoAxesColumnIncreasing, Gauge, Settings2, ShieldCheck, Target } from "lucide-react";
 
 // This is sample data.
 const data = {
-  organization: {
-    name: "Acme Inc",
-    logo: GalleryVerticalEnd,
-    plan: "Enterprise",
-  },
-  user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
   navMain: [
     {
       title: "Overview",
-      url: "#",
+      url: "/dashboard",
       icon: Gauge,
       isActive: true,
     },
     {
       title: "Link Two",
-      url: "#",
+      url: "/dashboard/link-two",
       icon: Activity,
     },
     {
       title: "Link Three",
-      url: "#",
+      url: "/dashboard/link-three",
       icon: Target,
     },
     {
       title: "Link Four",
-      url: "#",
+      url: "/dashboard/link-four",
       icon: ChartNoAxesColumnIncreasing,
     },
     {
       title: "Link Five",
-      url: "#",
+      url: "/dashboard/link-five",
       icon: ShieldCheck,
     },
   ],
   admin: [
     {
       title: "Organization Settings",
-      url: "#",
+      url: "/dashboard/organization-settings",
       icon: Settings2,
       items: [
         {
           title: "General",
-          url: "#",
+          url: "/dashboard/organization-settings",
         },
         {
           title: "Team",
-          url: "#",
+          url: "/dashboard/organization-settings/team",
         },
         {
           title: "Billing",
-          url: "#",
+          url: "/dashboard/organization-settings/billing",
         },
         {
           title: "Integrations",
-          url: "#",
+          url: "/dashboard/organization-settings/integrations",
         },
         {
           title: "API Keys",
-          url: "#",
+          url: "/dashboard/organization-settings/api-keys",
         },
       ],
     },
@@ -90,14 +71,14 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <NavTeam organization={data.organization} />
+        <NavTeam />
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
         <NavAdmin items={data.admin} />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <NavUser />
       </SidebarFooter>
     </Sidebar>
   );
