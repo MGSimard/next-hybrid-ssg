@@ -1,24 +1,29 @@
 "use client";
-
 import * as React from "react";
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } from "@/components/ui/sidebar";
+import { TeamSwitcher } from "@/components/sidebar/team-switcher";
+import { NavMain } from "@/components/sidebar/nav-main";
+import { NavAdmin } from "@/components/sidebar/nav-admin";
+import { NavUser } from "@/components/sidebar/nav-user";
 import {
+  Activity,
   AudioWaveform,
   BookOpen,
   Bot,
+  ChartNetwork,
+  ChartNoAxesColumnIncreasing,
   Command,
   Frame,
   GalleryVerticalEnd,
   Map,
+  PanelsTopLeft,
   PieChart,
   Settings2,
+  ShieldCheck,
   SquareTerminal,
+  Target,
 } from "lucide-react";
-
-import { NavMain } from "@/components/sidebar/nav-main";
-import { NavProjects } from "@/components/sidebar/nav-projects";
-import { NavUser } from "@/components/sidebar/nav-user";
-import { TeamSwitcher } from "@/components/sidebar/team-switcher";
-import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } from "@/components/ui/sidebar";
+import { NavTeam } from "./nav-team";
 
 // This is sample data.
 const data = {
@@ -46,69 +51,35 @@ const data = {
   ],
   navMain: [
     {
-      title: "Playground",
+      title: "Overview",
       url: "#",
-      icon: SquareTerminal,
+      icon: PanelsTopLeft,
       isActive: true,
-      items: [
-        {
-          title: "History",
-          url: "#",
-        },
-        {
-          title: "Starred",
-          url: "#",
-        },
-        {
-          title: "Settings",
-          url: "#",
-        },
-      ],
     },
     {
-      title: "Models",
+      title: "Link Two",
       url: "#",
-      icon: Bot,
-      items: [
-        {
-          title: "Genesis",
-          url: "#",
-        },
-        {
-          title: "Explorer",
-          url: "#",
-        },
-        {
-          title: "Quantum",
-          url: "#",
-        },
-      ],
+      icon: Activity,
     },
     {
-      title: "Documentation",
+      title: "Link Three",
       url: "#",
-      icon: BookOpen,
-      items: [
-        {
-          title: "Introduction",
-          url: "#",
-        },
-        {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
-        },
-      ],
+      icon: Target,
     },
     {
-      title: "Settings",
+      title: "Link Four",
+      url: "#",
+      icon: ChartNoAxesColumnIncreasing,
+    },
+    {
+      title: "Link Five",
+      url: "#",
+      icon: ShieldCheck,
+    },
+  ],
+  admin: [
+    {
+      title: "Organization Settings",
       url: "#",
       icon: Settings2,
       items: [
@@ -125,27 +96,14 @@ const data = {
           url: "#",
         },
         {
-          title: "Limits",
+          title: "Integrations",
+          url: "#",
+        },
+        {
+          title: "API Keys",
           url: "#",
         },
       ],
-    },
-  ],
-  projects: [
-    {
-      name: "Design Engineering",
-      url: "#",
-      icon: Frame,
-    },
-    {
-      name: "Sales & Marketing",
-      url: "#",
-      icon: PieChart,
-    },
-    {
-      name: "Travel",
-      url: "#",
-      icon: Map,
     },
   ],
 };
@@ -154,11 +112,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <TeamSwitcher teams={data.teams} />
+        <NavTeam />
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        <NavAdmin items={data.admin} />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
