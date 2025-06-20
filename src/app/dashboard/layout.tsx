@@ -9,7 +9,7 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
         <AppSidebar />
         <SidebarInset>
           <BreadcrumbHeader />
-          <div className="max-w-8xl w-full mx-auto flex flex-1 flex-col gap-4 p-4">{children}</div>
+          <div className="max-w-8xl w-full mx-auto flex flex-1 flex-col gap-4 p-6">{children}</div>
         </SidebarInset>
       </div>
     </SidebarProvider>

@@ -1,7 +1,13 @@
 import { GalleryVerticalEnd } from "lucide-react";
 import { SidebarMenuButton, SidebarMenu, SidebarMenuItem } from "@/components/ui/sidebar";
 
-export function NavTeam() {
+interface Organization {
+  name: string;
+  logo: React.ElementType;
+  plan: string;
+}
+
+export function NavTeam({ organization }: { organization: Organization }) {
   return (
     <SidebarMenu>
       <SidebarMenuItem>
@@ -11,8 +17,8 @@ export function NavTeam() {
               <GalleryVerticalEnd className="size-4" />
             </div>
             <div className="grid flex-1 text-left text-sm leading-tight">
-              <span className="truncate font-medium">Company Name</span>
-              <span className="truncate text-xs">Enterprise Plan</span>
+              <span className="truncate font-medium">{organization.name}</span>
+              <span className="truncate text-xs">{organization.plan}</span>
             </div>
           </a>
         </SidebarMenuButton>

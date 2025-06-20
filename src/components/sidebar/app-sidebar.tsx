@@ -1,50 +1,37 @@
 "use client";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader } from "@/components/ui/sidebar";
+import { NavTeam } from "@/components/sidebar/nav-team";
 import { NavMain } from "@/components/sidebar/nav-main";
 import { NavAdmin } from "@/components/sidebar/nav-admin";
 import { NavUser } from "@/components/sidebar/nav-user";
 import {
   Activity,
-  AudioWaveform,
   ChartNoAxesColumnIncreasing,
-  Command,
+  CircleGauge,
   GalleryVerticalEnd,
-  PanelsTopLeft,
+  Gauge,
   Settings2,
   ShieldCheck,
   Target,
 } from "lucide-react";
-import { NavTeam } from "./nav-team";
 
 // This is sample data.
 const data = {
+  organization: {
+    name: "Acme Inc",
+    logo: GalleryVerticalEnd,
+    plan: "Enterprise",
+  },
   user: {
     name: "shadcn",
     email: "m@example.com",
     avatar: "/avatars/shadcn.jpg",
   },
-  teams: [
-    {
-      name: "Acme Inc",
-      logo: GalleryVerticalEnd,
-      plan: "Enterprise",
-    },
-    {
-      name: "Acme Corp.",
-      logo: AudioWaveform,
-      plan: "Startup",
-    },
-    {
-      name: "Evil Corp.",
-      logo: Command,
-      plan: "Free",
-    },
-  ],
   navMain: [
     {
       title: "Overview",
       url: "#",
-      icon: PanelsTopLeft,
+      icon: Gauge,
       isActive: true,
     },
     {
@@ -103,7 +90,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <NavTeam />
+        <NavTeam organization={data.organization} />
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
